@@ -1,13 +1,134 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.map {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.64);
+  color: white;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.header > div {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.header > div > h3 {
+  margin-left: 25px;
+  font-weight: 200;
+}
+
+
+.event-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+a:hover {
+  color: dodgerblue;
+}
+
+
+.events-options {
+  background-color: transparent;
+}
+
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.spinner-container > h4 {
+  font-weight: 200;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #007bff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+
+
+._div {
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.64);
+}
+
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-on-desc {
+    display: none !important;
+  }
 }
