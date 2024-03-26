@@ -133,7 +133,6 @@ a:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center !important;
-    background-color: blue;
   }
 
   .events-options > label {
