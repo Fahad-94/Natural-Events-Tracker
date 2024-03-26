@@ -53,21 +53,41 @@ function Map({ events }) {
       <div className='events-options'>
       <h3 className='hide-on-mobile'>Show: </h3>
       <label style={isMobile? {marginLeft: '55px'}: {}}>
-        <div className='event-option'><input type='checkbox' checked={fire} onChange={e=> setFire(e.target.checked)}/><img src={fireImg} width={isMobile? 25:30} alt='fire image'/><p>Wildfires</p></div>
+        {!isMobile && <div className='event-option'>
+          <input type='checkbox' checked={fire} onChange={e=> setFire(e.target.checked)}/>
+          <img src={fireImg} width={isMobile? 25:30} alt='fire image'/>
+          <p>Wildfires</p></div>}
+        {isMobile && <div className='event-option-mobile'>
+          <img src={fireImg} width={isMobile? 25:30} alt='fire image'/>
+          <div>
+          <input type='checkbox' checked={fire} onChange={e=> setFire(e.target.checked)}/>          
+          <p>Wildfires</p></div></div>}
       </label>
       <label>
-        <div className='event-option'>
+        {!isMobile && <div className='event-option'>
         <input type='checkbox' checked={storms} onChange={e=> setStorms(e.target.checked)}/>
         <img src={stormImg} width={isMobile? 30:30} alt='storm image'/>
         <p>Severe Storms</p>
-        </div>
+        </div>}
+        {isMobile && <div className='event-option-mobile'>
+        <img src={stormImg} width={isMobile? 30:30} alt='storm image'/>
+        <div>
+        <input type='checkbox' checked={storms} onChange={e=> setStorms(e.target.checked)}/>
+        <p>Severe Storms</p>
+        </div></div>}
       </label>
       <label>
-        <div className='event-option'>
+        {!isMobile && <div className='event-option'>
         <input type='checkbox' checked={volcanoes} onChange={e=> setVolcanoes(e.target.checked)}/>
         <img src={volcanoImg} width={30} alt='volcano image' />
         <p>Volvanoes</p>
-        </div>
+        </div>}
+        {isMobile && <div className='event-option-mobile'>
+        <img src={volcanoImg} width={30} alt='volcano image' />
+        <div>
+        <input type='checkbox' checked={volcanoes} onChange={e=> setVolcanoes(e.target.checked)}/>
+        <p>Volvanoes</p>
+        </div></div>}
       </label>
       </div>
 
