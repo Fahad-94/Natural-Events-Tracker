@@ -125,6 +125,24 @@ a:hover {
   .hide-on-mobile {
     display: none !important;
   }
+
+
+  .events-options {
+    width: 100vw !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center !important;
+    background-color: blue;
+  }
+
+  .events-options > label {
+    width: 100%;
+  }
+
+  .header > div {
+    gap: 2px !important;
+  }
 }
 
 @media (min-width: 768px) {

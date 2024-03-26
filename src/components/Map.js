@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
@@ -11,10 +11,11 @@ function Map({ events }) {
   const [fire, setFire] = useState(true)
   const [storms, setStorms] = useState(true)
   const [volcanoes, setVolcanoes] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
 
   const fireIcon = L.icon({
     iconUrl: fireImg,
-    iconSize: [30, 30],
+    iconSize: isMobile? [28, 28]:[30, 30],
   });
 
   const stormIcon = L.icon({
@@ -24,8 +25,25 @@ function Map({ events }) {
 
   const volcanoIcon = L.icon({
     iconUrl: volcanoImg,
-    iconSize: [45, 45],
+    iconSize: isMobile? [40, 40]:[45, 45],
   });
+
+
+  useEffect(()=> {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+
+
+    return ()=> {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
 
 
@@ -33,14 +51,14 @@ function Map({ events }) {
     <div style={{position: 'relative'}}>
     <div className='header'>
       <div className='events-options'>
-      <h3>Show: </h3>
-      <label>
-        <div className='event-option'><input type='checkbox' checked={fire} onChange={e=> setFire(e.target.checked)}/><img src={fireImg} width={30} alt='fire image'/><p>Wildfires</p></div>
+      <h3 className='hide-on-mobile'>Show: </h3>
+      <label style={isMobile? {marginLeft: '55px'}: {}}>
+        <div className='event-option'><input type='checkbox' checked={fire} onChange={e=> setFire(e.target.checked)}/><img src={fireImg} width={isMobile? 25:30} alt='fire image'/><p>Wildfires</p></div>
       </label>
       <label>
         <div className='event-option'>
         <input type='checkbox' checked={storms} onChange={e=> setStorms(e.target.checked)}/>
-        <img src={stormImg} width={30} alt='storm image'/>
+        <img src={stormImg} width={isMobile? 30:30} alt='storm image'/>
         <p>Severe Storms</p>
         </div>
       </label>
