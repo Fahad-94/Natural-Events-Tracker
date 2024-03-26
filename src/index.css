@@ -159,6 +159,11 @@ a:hover {
     justify-content: center;
     gap: 2px;
   }
+
+
+  .event-option-mobile > p {
+    font-size: small;
+  }
 }
 
 @media (min-width: 768px) {

@@ -80,13 +80,13 @@ function Map({ events }) {
         {!isMobile && <div className='event-option'>
         <input type='checkbox' checked={volcanoes} onChange={e=> setVolcanoes(e.target.checked)}/>
         <img src={volcanoImg} width={30} alt='volcano image' />
-        <p>Volvanoes</p>
+        <p>Volcanoes</p>
         </div>}
         {isMobile && <div className='event-option-mobile'>
         <img src={volcanoImg} width={30} alt='volcano image' />
         <div>
         <input type='checkbox' checked={volcanoes} onChange={e=> setVolcanoes(e.target.checked)}/>
-        <p>Volvanoes</p>
+        <p>Volcanoes</p>
         </div></div>}
       </label>
       </div>
